@@ -1,0 +1,11 @@
+<h1><%= @selectedTask.title %></h1>
+<p class="details"><%= @selectedTask.details %></p>
+
+<% if @selectedTask.completed? %>
+<p>[X]-This task is completed<p>
+  <% else %>
+  <p>[ ] - This task is not completed</p>
+  <% end %>
+
+
+
