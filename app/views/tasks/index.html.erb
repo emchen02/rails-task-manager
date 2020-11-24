@@ -1,13 +1,20 @@
 <h1>Tasks#index</h1>
-<ul>
-<% @tasks.each do |task| %>
-  <% if task.completed? %>
-   <li>[X] - <%=task.title %></li>
-  <% else %>
-  <li>[ ] - <%=task.title %></li>
-  <% end %>
-  <li> <%= link_to "Go to task", show_path(task) %></li>
-<% end %>
+<div class = container>
+  <ul>
+    <% @tasks.each do |task| %>
 
-</ul>
+      <% if task.completed? %>
+        <li>[X] - <%=task.title %></li>
+      <% else %>
+        <li>[ ] - <%=task.title %></li>
+      <% end %>
 
+      <p> <%= link_to "Go to task", task_path(task) %></p>
+    <%= link_to "Delete #{task.title}",
+                task_path(task),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+
+      <% end %>
+  </ul>
+</div>
